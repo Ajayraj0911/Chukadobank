@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.bean.CustomerBean;
 import com.dao.CustomerDao;
@@ -23,6 +24,7 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		HttpSession session= request.getSession();		
 		String email=request.getParameter("email");
 		String password=request.getParameter("password");
 		List<CustomerBean> customerList = new CustomerDao().getAllCustomers();
@@ -38,6 +40,10 @@ public class LoginController extends HttpServlet {
 			if(enteredEmail.equals(email) && enteredPassword.equals(password))
 			{
 				System.out.println("Login Successfull");
+				session.setAttribute("customerBean", customerBean);  
+				int balance = customerBean.getBalance();
+				session.setAttribute("balance", balance);
+				response.sendRedirect("AddBalance.jsp");
 			}
 			else
 			{

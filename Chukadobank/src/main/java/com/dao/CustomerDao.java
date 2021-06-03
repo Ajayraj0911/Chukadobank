@@ -12,8 +12,8 @@ import com.util.DBConnection;
 
 public class CustomerDao {
 
-	Connection conn = (Connection) DBConnection.getDBConnection();
-	PreparedStatement stmt;
+	static Connection conn = (Connection) DBConnection.getDBConnection();
+	static PreparedStatement stmt;
 
 	public boolean addEmployee(CustomerBean customerbean) {
 		boolean flag = false;
@@ -71,4 +71,73 @@ public class CustomerDao {
 		}
 		return customers;
 	}
+	
+//	
+//	  public List<CustomerBean> getAllTransaction() {
+//	  
+//	  Connection conn = DBConnection.getDBConnection(); List<CustomerBean>
+//	  transaction = new ArrayList<>(); if (conn != null) {
+//	  
+//	  try { PreparedStatement pstmt =
+//	  conn.prepareStatement("select * from transaction"); ResultSet rs =
+//	  (ResultSet) pstmt.executeQuery(); while (rs.next()) {
+//	  
+//	  CustomerBean customerBean = new CustomerBean();
+//	  customerBean.setDate(rs.getString(1)); customerBean.setAmount(rs.getInt(2));
+//	  customerBean.setTid(rs.getInt(3)); transaction.add(customerBean); }
+//	  
+//	  } catch (SQLException e) { // TODO Auto-generated catch block
+//	  e.printStackTrace(); }
+//	  
+//	  } return transaction; }
+//	 
+	public List<CustomerBean> getAllTransaction(String from, String to) {
+
+		Connection conn = DBConnection.getDBConnection();
+		List<CustomerBean> transaction = new ArrayList<>();
+		System.out.print(from);
+		if (conn != null) {
+
+			try {
+				PreparedStatement pstmt = conn.prepareStatement("select * from transaction where date > '" + from +"' and date < '" + to + "';");
+//				pstmt.setString(1,from);
+//				pstmt.setString(2,to);
+				ResultSet rs = (ResultSet) pstmt.executeQuery();
+				while (rs.next()) {
+
+					CustomerBean customerBean = new CustomerBean();
+					customerBean.setDate(rs.getString(1));
+					customerBean.setAmount(rs.getInt(2));	
+					customerBean.setTid(rs.getInt(3));									
+					transaction.add(customerBean);
+				}
+
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		return transaction;
+	}
+	public static boolean addBalance(int balance,int id) {
+		boolean flag = false;
+		String insertQuery = "update customer set balance = '" + balance + "' where id = '" + id + "';";
+		try {
+			stmt = (PreparedStatement) conn.prepareStatement(insertQuery);
+			
+			 int res = stmt.executeUpdate();
+			 
+			 if(res>0) {
+				 
+				 flag = true;
+			 }
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return flag;
+	}
+	
 }

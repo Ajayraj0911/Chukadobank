@@ -22,6 +22,19 @@
   	<description></description>
   	<servlet-class>com.controller.LoginController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>TransactionController</servlet-name>
+  	<display-name>TransactionController</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.TransactionController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddBalanceController</servlet-name>
+  	<display-name>AddBalanceController</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.AddBalanceController</servlet-class>
+  </servlet>
+
   <servlet-mapping>
   	<servlet-name>Test</servlet-name>
   	<url-pattern>/Test</url-pattern>
@@ -34,4 +47,13 @@
   	<servlet-name>LoginController</servlet-name>
   	<url-pattern>/LoginController</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TransactionController</servlet-name>
+  	<url-pattern>/TransactionController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddBalanceController</servlet-name>
+  	<url-pattern>/AddBalanceController</url-pattern>
+  </servlet-mapping>
+
 </web-app>

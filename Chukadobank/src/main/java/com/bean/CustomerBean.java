@@ -7,6 +7,10 @@ public class CustomerBean {
 	private String email;
 	private String address;
 	private String password;
+	private String date;
+	private int tid;
+	private int amount;
+
 	
 	public String getPassword() {
 		return password;
@@ -45,5 +49,23 @@ public class CustomerBean {
 	}
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public int getTid() {
+		return tid;
+	}
+	public void setTid(int tid) {
+		this.tid = tid;
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 }
