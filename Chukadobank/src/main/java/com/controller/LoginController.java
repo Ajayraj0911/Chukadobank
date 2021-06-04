@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -37,16 +38,22 @@ public class LoginController extends HttpServlet {
 			System.out.println(password);
 			System.out.println(enteredEmail);
 			System.out.println(enteredPassword);
+			response.setContentType("text/html");
+			PrintWriter out = response.getWriter();
+			out.print("<html><body>");
 			if(enteredEmail.equals(email) && enteredPassword.equals(password))
 			{
 				System.out.println("Login Successfull");
 				session.setAttribute("customerBean", customerBean);  
 				int balance = customerBean.getBalance();
 				session.setAttribute("balance", balance);
-				response.sendRedirect("AddBalance.jsp");
+				response.sendRedirect("index.jsp");
 			}
 			else
 			{
+//				out.print("<b style="color: white;">");
+//				out.print("<b style="color: white;">LOGIN FAILED</b>");
+//				request.getRequestDispatcher("Register.jsp").include(request, response);
 				System.out.println("Login Failed");
 			}
 	}

@@ -30,6 +30,7 @@ public class AddBalanceController extends HttpServlet {
 
 		if(CustomerDao.addBalance(balance,id)) {
 			System.out.println("addbalance");
+			response.sendRedirect("paymentsuccessfull.jsp");
 		}
 		
 	}
