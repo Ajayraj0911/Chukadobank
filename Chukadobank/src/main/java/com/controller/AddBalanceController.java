@@ -25,12 +25,19 @@ public class AddBalanceController extends HttpServlet {
 				HttpSession session = request.getSession();
 		CustomerBean customerBean = (CustomerBean) session.getAttribute("customerBean");
 		int id = customerBean.getId();
-		
+		String email = customerBean.getEmail();
+		int amount = Integer.parseInt(request.getParameter("balance"));
 		int balance = Integer.parseInt(request.getParameter("balance")) + customerBean.getBalance();
 
 		if(CustomerDao.addBalance(balance,id)) {
 			System.out.println("addbalance");
-			response.sendRedirect("paymentsuccessfull.jsp");
+			if(CustomerDao.transactionRecorder(amount,email)) {
+				System.out.println("TransactionRecorder");
+			}
+			else {
+				System.out.println("Not Recoder");
+			}
+			response.sendRedirect("MainCustomer");
 		}
 		
 	}

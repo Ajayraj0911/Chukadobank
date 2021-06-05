@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,9 +14,9 @@ import com.bean.CustomerBean;
 import com.dao.CustomerDao;
 
 /**
- * Servlet implementation class TransactionController
+ * Servlet implementation class MainCustomer
  */
-public class TransactionController extends HttpServlet {
+public class MainCustomer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -26,13 +27,30 @@ public class TransactionController extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		HttpSession session = request.getSession();
 		CustomerBean customerBean = (CustomerBean) session.getAttribute("customerBean");
-		String email = customerBean.getEmail();
-		String From = request.getParameter("from");
-		String To = request.getParameter("to");
-		System.out.println(From);
-		List<CustomerBean> transactionList = new CustomerDao().getAllTransaction(From,To,email);
-		session.setAttribute("transactionList", transactionList);
-		response.sendRedirect("ViewTransaction.jsp");
+		String Email = customerBean.getEmail();
+		List<CustomerBean> customerList = new CustomerDao().getAllCustomers();
+		for(int i = 0; i<customerList.size(); i++) {
+			
+			customerBean = customerList.get(i);
+			String enteredEmail = customerBean.getEmail();
+		
+			if(enteredEmail.equals(Email))
+			{
+				session.setAttribute("customerBean", customerBean);  
+				int balance = customerBean.getBalance();
+				session.setAttribute("balance", balance);
+				response.sendRedirect("paymentsuccessfull.jsp");
+			}
+			else
+			{
+//				out.print("<b style="color: white;">");
+//				out.print("<b style="color: white;">LOGIN FAILED</b>");
+//				request.getRequestDispatcher("Register.jsp").include(request, response);
+				System.out.println("Login Failed");
+			}
+	}
+
+		
 	}
 
 	/**

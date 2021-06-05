@@ -1,7 +1,7 @@
 <%@page import="java.util.List"%>
 <%@page import="com.bean.CustomerBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,28 +10,35 @@
 </head>
 <body>
 <%
-	List<CustomerBean> transaction = (List) request.getAttribute("transactionList");
+	List<CustomerBean> transaction = (List) session.getAttribute("transactionList");
 %>
-	<table style="border: 10px;">
-		<tr>
-			<td>Date</td>
-			<td>Amount</td>
-			<td>Transaction Id</td>
-		</tr>
+	
+	<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Transaction ID</th>
+      <th scope="col">Amount</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+   
 		<%
 			for (int i = 0; i < transaction.size(); i++) {
 				CustomerBean CustomerBean = transaction.get(i);
 			%>
 			<tr>
 				<td><%=CustomerBean.getDate() %></td>
-				<td><%=CustomerBean.getAmount() %></td>
 				<td><%=CustomerBean.getTid() %></td>
+				<th scope="row"><%=CustomerBean.getAmount() %></th>
 
 			</tr>
 			<%
 			}
 			%>
-	
+  </tbody>
+</table>
 	</table>
 </body>
 </html>

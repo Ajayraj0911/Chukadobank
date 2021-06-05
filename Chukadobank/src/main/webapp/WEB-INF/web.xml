@@ -34,6 +34,18 @@
   	<description></description>
   	<servlet-class>com.controller.AddBalanceController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>MainCustomer</servlet-name>
+  	<display-name>MainCustomer</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.MainCustomer</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LogoutController</servlet-name>
+  	<display-name>LogoutController</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.LogoutController</servlet-class>
+  </servlet>
 
   <servlet-mapping>
   	<servlet-name>Test</servlet-name>
@@ -54,6 +66,14 @@
   <servlet-mapping>
   	<servlet-name>AddBalanceController</servlet-name>
   	<url-pattern>/AddBalanceController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>MainCustomer</servlet-name>
+  	<url-pattern>/MainCustomer</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LogoutController</servlet-name>
+  	<url-pattern>/LogoutController</url-pattern>
   </servlet-mapping>
 
 </web-app>

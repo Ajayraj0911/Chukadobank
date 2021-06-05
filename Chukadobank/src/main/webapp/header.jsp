@@ -1,6 +1,6 @@
 <%@page import="com.bean.CustomerBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +49,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="#top">Available Balance Rs <%=customerBean.getBalance() %></a></li></ul>
                 
-                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="https://mobiri.se">Log Out</a></div>
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="LogoutController">Log Out</a></div>
             </div>
         </div>
     </nav>

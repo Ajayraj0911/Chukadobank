@@ -1,6 +1,6 @@
 <%@page import="com.bean.CustomerBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,7 +51,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="#top">Available Balance Rs <%=customerBean.getBalance() %></a></li></ul>
                 
-                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="https://mobiri.se">Log Out</a></div>
+                <div class="navbar-buttons mbr-section-btn"><a class="btn btn-primary display-4" href="LogoutController">Log Out</a></div>
             </div>
         </div>
     </nav>
@@ -88,9 +88,9 @@
                     <div class="item-content">
                         
                         
-                        <p class="mbr-text mbr-fonts-style mt-3 display-7">See all Your Transection History</p>
+                        <p class="mbr-text mbr-fonts-style mt-3 display-7">See all Your Transaction History</p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2" ><a href="ViewTransection.jsp" class="btn item-btn btn-black display-7" >TRANSECTION HISTORY</a></div>
+                    <div class="mbr-section-btn item-footer mt-2" ><a href="TransactionController" class="btn item-btn btn-black display-7" >TRANSACTION HISTORY</a></div>
                 </div>
             </div>
             <div class="item features-image сol-12 col-md-6 col-lg-4">
@@ -131,7 +131,7 @@
                         <strong>Transfer Now</strong></h3>
                     <p class="mbr-text mbr-fonts-style mb-4 display-4">
                         Best and Safes Way to transfer money. Safe and secure way to send money to anyone. Try chukado bank today and send money to any one</p>
-                    <div class="mbr-section-btn"><a class="btn btn-white display-4" href="ViewTransection.jsp">Transection History</a></div>
+                    <div class="mbr-section-btn"><a class="btn btn-white display-4" href="TransactionController">Transaction History</a></div>
                 </div>
             </div>
         </div>
