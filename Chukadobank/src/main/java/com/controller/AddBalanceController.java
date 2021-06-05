@@ -29,7 +29,7 @@ public class AddBalanceController extends HttpServlet {
 		int amount = Integer.parseInt(request.getParameter("balance"));
 		int balance = Integer.parseInt(request.getParameter("balance")) + customerBean.getBalance();
 
-		if(CustomerDao.addBalance(balance,id)) {
+		if(CustomerDao.addBalance(balance,email)) {
 			System.out.println("addbalance");
 			if(CustomerDao.transactionRecorder(amount,email)) {
 				System.out.println("TransactionRecorder");

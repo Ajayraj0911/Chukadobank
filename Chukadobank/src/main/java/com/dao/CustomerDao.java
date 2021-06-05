@@ -128,9 +128,9 @@ public class CustomerDao {
 		}
 		return transaction;
 	}
-	public static boolean addBalance(int balance,int id) {
+	public static boolean addBalance(int balance,String email) {
 		boolean flag = false;
-		String insertQuery = "update customer set balance = '" + balance + "' where id = '" + id + "';";
+		String insertQuery = "update customer set balance = '" + balance + "' where email = '" + email + "';";
 		try {
 			stmt = (PreparedStatement) conn.prepareStatement(insertQuery);
 			

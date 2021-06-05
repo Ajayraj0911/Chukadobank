@@ -103,7 +103,7 @@
                         
                         <p class="mbr-text mbr-fonts-style mt-3 display-7">Transfer Fund To anyone in sec.<br></p>
                     </div>
-                    <div class="mbr-section-btn item-footer mt-2"><a href="" class="btn item-btn btn-black display-7" >NET BANKING</a></div>
+                    <div class="mbr-section-btn item-footer mt-2"><a href="NetBanking.jsp" class="btn item-btn btn-black display-7" >NET BANKING</a></div>
                 </div>
             </div>
 
@@ -122,7 +122,7 @@
                         <strong>Learn More</strong></h3>
                     <p class="mbr-text mb-4 mbr-fonts-style display-4">
                         Best and Safes Way to transfer money. Safe and secure way to send money to anyone. Try chukado bank today and send money to any one</p>
-                    <div class="mbr-section-btn"><a class="btn btn-white display-4" href="">Net Banking</a></div>
+                    <div class="mbr-section-btn"><a class="btn btn-white display-4" href="NetBanking.jsp">Net Banking</a></div>
                 </div>
             </div>
             <div class="col-12 col-lg-6">

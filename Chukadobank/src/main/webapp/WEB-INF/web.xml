@@ -46,6 +46,12 @@
   	<description></description>
   	<servlet-class>com.controller.LogoutController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>NetBankingController</servlet-name>
+  	<display-name>NetBankingController</display-name>
+  	<description></description>
+  	<servlet-class>com.controller.NetBankingController</servlet-class>
+  </servlet>
 
   <servlet-mapping>
   	<servlet-name>Test</servlet-name>
@@ -74,6 +80,10 @@
   <servlet-mapping>
   	<servlet-name>LogoutController</servlet-name>
   	<url-pattern>/LogoutController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>NetBankingController</servlet-name>
+  	<url-pattern>/NetBankingController</url-pattern>
   </servlet-mapping>
 
 </web-app>
