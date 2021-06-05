@@ -1,7 +1,6 @@
 package com.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,9 +13,9 @@ import com.bean.CustomerBean;
 import com.dao.CustomerDao;
 
 /**
- * Servlet implementation class LoginController
+ * Servlet implementation class IndexController
  */
-public class LoginController extends HttpServlet {
+public class IndexController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -25,29 +24,21 @@ public class LoginController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		HttpSession session= request.getSession();		
-		String email=request.getParameter("email");
-		String password=request.getParameter("password");
+		HttpSession session = request.getSession();
+		CustomerBean customerBean = (CustomerBean) session.getAttribute("customerBean");
+		String Email = customerBean.getEmail();
 		List<CustomerBean> customerList = new CustomerDao().getAllCustomers();
 		for(int i = 0; i<customerList.size(); i++) {
-			CustomerBean customerBean = new CustomerBean();
+			
 			customerBean = customerList.get(i);
 			String enteredEmail = customerBean.getEmail();
-			String enteredPassword = customerBean.getPassword();
-			System.out.println(email);
-			System.out.println(password);
-			System.out.println(enteredEmail);
-			System.out.println(enteredPassword);
-			response.setContentType("text/html");
-			PrintWriter out = response.getWriter();
-			out.print("<html><body>");
-			if(enteredEmail.equals(email) && enteredPassword.equals(password))
+		
+			if(enteredEmail.equals(Email))
 			{
-				System.out.println("Login Successfull");
 				session.setAttribute("customerBean", customerBean);  
 				int balance = customerBean.getBalance();
 				session.setAttribute("balance", balance);
-				response.sendRedirect("IndexController");
+				response.sendRedirect("index.jsp");
 			}
 			else
 			{

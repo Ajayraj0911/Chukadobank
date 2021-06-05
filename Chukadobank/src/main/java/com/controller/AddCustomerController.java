@@ -41,7 +41,7 @@ public class AddCustomerController extends HttpServlet {
 		session.setAttribute("customerBean", customerbean);
 		if(customerdao.addEmployee(customerbean)) {
 			System.out.println("Added");
-			response.sendRedirect("index.jsp");
+			response.sendRedirect("IndexController");
 		}
 		else {
 			System.out.println("Failed");

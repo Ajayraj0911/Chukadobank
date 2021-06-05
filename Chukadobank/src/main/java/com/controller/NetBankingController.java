@@ -63,6 +63,7 @@ public class NetBankingController extends HttpServlet {
 					System.out.println("addbalance");
 					if(CustomerDao.transactionRecorder(amount,bemail)) {
 						System.out.println("TransactionRecorder");
+						  
 					}
 					else {
 						System.out.println("Not Recoder");
@@ -71,12 +72,13 @@ public class NetBankingController extends HttpServlet {
 				}
 				
 			}
-			else {
-				out.print("LOGIN FAILED");
-				request.getRequestDispatcher("NetBanking.jsp").include(request, response);
-				break;
-
-			}
+			
+			  else { out.print("LOGIN FAILED");
+			  request.getRequestDispatcher("NetBanking.jsp").include(request, response);
+		
+			  
+			  }
+			 
 		}
 
 
