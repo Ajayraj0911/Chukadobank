@@ -8,8 +8,8 @@
 </head>
 <body>
 	<form action="NetBankingController">
-		<input type="email" name="email">
-		<input type="number" name="balance">
+		Enter Email:-<input type="email" name="email"><br>
+		Enter amount:-<input type="number" name="balance"><br>
 		<input type="submit"value="Transfer">
 	</form>
 </body>
