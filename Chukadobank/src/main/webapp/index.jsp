@@ -37,7 +37,7 @@
         <div class="container">
             <div class="navbar-brand">
                 
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-7" href="https://mobiri.se">Hello, <%=customerBean.getName() %></a></span>
+                <span class="navbar-caption-wrap"><a class="navbar-caption text-black display-7" href="index.jsp">Hello, <%=customerBean.getName() %></a></span>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="hamburger">
